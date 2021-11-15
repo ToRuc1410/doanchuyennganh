@@ -1,0 +1,125 @@
+<script>
+//     function myFunction() 
+//     {
+//     console.log('1:',this);
+//     }
+
+//     myFunction(); 
+
+// const myObject = {
+//                     method() {
+//                         console.log('2:',this);
+//                     }
+//                 };
+
+// myObject.method(); 
+// // => "myObject"
+
+
+// const myObject2 = {
+//   myMethod(items) {
+//     console.log('3:',this); // "myObject"
+//     const callback = () => {
+//       console.log('4:',this); // "myObject"
+//     };
+//     items.forEach(callback);
+//   }
+// };
+
+// myObject2.myMethod([1, 2, 3]);
+
+
+// //-------------------------------Constructor ---------
+// function Car(color) {
+//     this.color = color;
+// }
+// const redCar = new Car('red');
+// redCar instanceof Car; // => true
+ 
+// //Cũng không có vùng tự trị riêng, nên arrow function KHONG thể dùng như một constructor
+
+// const Car2 = (color) => {
+//   this.color = color;
+// };
+
+// const redCar2 = new Car2('red');
+// // => TypeError: Car is not a constructor
+
+//-----
+// function myFunction3() {
+//   console.log(arguments);
+//   for(i in arguments)
+//     console.log(i);
+// }
+
+// myFunction3('a', 'b'); 
+// // => { 0: 'a', 1: 'b'}
+
+// myFunction3(2,4,5,6,7);
+
+// function myRegularFunction() {
+//   const myArrowFunction = () => {
+//     console.log(arguments);
+//   }
+
+//   myArrowFunction('c', 'd');
+// }
+
+// myRegularFunction('a', 'b'); 
+// // => { 0: 'a', 1: 'b' }
+
+
+// function myFunction() {
+//   return 42;
+// }
+// console.log(myFunction()); 
+// // => 42
+
+// function myEmptyFunction() {
+//   42;
+// }
+
+// console.log(myEmptyFunction()); 
+// function myEmptyFunction2() {
+//   42;
+//   return;
+// }
+
+// myEmptyFunction();  
+// // => undefined
+// myEmptyFunction2();
+
+
+// const increment = (num) => num + 1;
+
+// console.log(increment(41));
+
+
+
+class Hero {
+  constructor(heroName) {
+    this.heroName = heroName;
+  }
+
+  logName() {
+    console.log(this.heroName);
+  }
+}
+
+const batman = new Hero('Batman');
+ 
+
+//Nhưng khi bạn không muốn thay đổi giá trị của this, arrow function sẽ là lựa chọn hợp lý hơn
+
+class Hero2 {
+  constructor(heroName) {
+    this.heroName = heroName;
+  }
+
+  logName = () => {
+    console.log(this.heroName);
+  }
+}
+
+const batman2 = new Hero2('Batman');
+</script>
